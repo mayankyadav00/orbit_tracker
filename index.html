@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Orbit Tracker</title>
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#121212">
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="streak-container">
+            <i class="fa-solid fa-fire"></i>
+            <span id="streakCount">0</span>
+        </div>
+        <div class="app-title" id="currentTaskTitle">Select Task</div>
+        <button class="menu-btn" id="menuBtn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </nav>
+
+    <div class="sidebar-overlay" id="overlay"></div>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3>My Orbits</h3>
+            <button class="close-btn" id="closeBtn">&times;</button>
+        </div>
+        
+        <div id="taskList" class="task-list"></div>
+
+        <div class="new-task-section">
+            <h4>Start New Orbit</h4>
+            <input type="text" id="newTaskInput" placeholder="Task Name">
+            <input type="number" id="newTaskTotal" placeholder="Total Blocks">
+            
+            <div class="grouping-controls">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="enableGrouping"> 
+                    Enable Sub-tasks
+                </label>
+                <input type="number" id="chunkSizeInput" placeholder="Blocks per Group" class="hidden">
+            </div>
+
+            <button id="createTaskBtn">Create</button>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="stats-card">
+            <h1 id="percentageDisplay">0%</h1>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="progressBarFill"></div>
+            </div>
+        </div>
+
+        <button id="backBtn" class="back-btn" style="display: none;">
+            <i class="fa-solid fa-arrow-left"></i> Back
+        </button>
+
+        <div id="gridContainer" class="grid-container">
+            <p class="empty-state">Open menu <i class="fa-solid fa-bars"></i> to start.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
